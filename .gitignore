@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+.env
+*.log
+.github_agent_config.json
