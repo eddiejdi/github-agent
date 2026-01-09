@@ -1,22 +1,55 @@
-# GitHub Agent 🤖
+#  GitHub Agent
 
-Agente inteligente que conecta Ollama com GitHub API via linguagem natural.
+Agente AI para interação com repositórios GitHub usando LLM local (Ollama).
 
-## Funcionalidades
-- 💬 Chat em linguagem natural
-- 📂 Listar repositórios, issues, PRs
-- 🔍 Buscar repositórios
-- 🔐 Autenticação via token
+##  Funcionalidades
 
-## Stack
-- Python 3.11+ / Streamlit / Ollama / GitHub API
+-  Análise de repositórios GitHub
+-  Busca de issues e PRs
+-  Sugestões de código usando LLM
+-  Ações rápidas pré-configuradas
 
-## Instalação
-```bash
-python -m venv venv && source venv/bin/activate
-pip install streamlit requests
-streamlit run github_agent_streamlit.py --server.port 8502
-```
+##  Acesso
 
-## Licença
+| Tipo | URL |
+|------|-----|
+| Local | http://192.168.15.2:8502 |
+| Externo | https://homelab-tunnel-sparkling-sun-3565.fly.dev/github |
+
+##  Tecnologias
+
+- **Frontend**: Streamlit
+- **LLM**: Ollama (qwen2.5-coder:7b)
+- **API**: GitHub REST API
+
+##  Configuração
+
+### Variáveis de Ambiente
+\\ash
+OLLAMA_HOST=localhost
+OLLAMA_PORT=11434
+OLLAMA_MODEL=qwen2.5-coder:7b
+GITHUB_TOKEN=<seu_token>
+\
+### Serviço Systemd
+\\ash
+# Status
+sudo systemctl status github-agent
+
+# Logs
+journalctl -u github-agent -f
+
+# Reiniciar
+sudo systemctl restart github-agent
+\
+##  Estrutura
+
+\github-agent/
+ github_agent_streamlit.py  # App principal
+ prompts/                   # Prompts do LLM
+ utils/                     # Utilitários
+ README.md
+\
+##  Licença
+
 MIT
